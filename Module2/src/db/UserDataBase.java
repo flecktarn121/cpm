@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserDataBase {
-	private final static String USERS_FILE = "";
+	private final static String USERS_FILE = "files/clientes.dat";
 	private Map<String, String> users = new HashMap<String, String>();
 
 	public UserDataBase() throws FileNotFoundException, IOException {
@@ -20,6 +20,9 @@ public class UserDataBase {
 			while (file.ready()) {
 				String line = file.readLine();
 				String[] data = line.split("@");
+				String user = data[0];
+				String password = data[1];
+				users.put(user, password);
 			}
 		}
 	}

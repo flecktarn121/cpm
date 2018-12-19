@@ -3,6 +3,7 @@ package bussiness;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import db.UserAlreadyRegisteredException;
 import db.UserDataBase;
 import db.UserNotFoundException;
 
@@ -22,8 +23,8 @@ public class Login {
 
 	public void registerUser(String user, String password) throws BusinessException {
 		try {
-			this.userDb.logIn(user, password);
-		} catch (UserNotFoundException e) {
+			this.userDb.registerUser(user, password);
+		} catch (UserAlreadyRegisteredException e) {
 			throw new BusinessException(e);
 		}
 	}
@@ -35,7 +36,7 @@ public class Login {
 			throw new BusinessException(e);
 		}
 	}
-	
+
 	public void logout() {
 		this.currentUser = NO_USER;
 	}
@@ -44,8 +45,17 @@ public class Login {
 		return currentUser;
 	}
 
-	public void setCurrentUser(String currentUser) {
-		this.currentUser = currentUser;
+	public void logIn(String currentUser, String password) throws BusinessException {
+		try {
+			if(userDb.logIn(currentUser, password)) {
+				this.currentUser = currentUser;
+			}else {
+				throw new BusinessException("Wrong password.");
+			}			
+		} catch (UserNotFoundException e) {
+			throw new BusinessException(e);
+		}
+
 	}
 
 }

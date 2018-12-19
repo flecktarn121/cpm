@@ -1,11 +1,13 @@
 package bussiness;
 
-import db.UserNotFoundException;
-
 public class BusinessException extends Exception {
 
-	public BusinessException(UserNotFoundException e) {
+	public BusinessException(Exception e) {
 		super(e);
+	}
+
+	public BusinessException(String string) {
+		super(string);
 	}
 
 	/**

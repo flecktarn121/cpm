@@ -1,0 +1,19 @@
+BE001@Drink@Beer@Dutch Beer in a 5 lt. barrel@17@0
+BE002@Drink@Soft Drinks@Coke, Lemonade and Tonic combination@1.5@0
+BE003@Drink@Sangría@1 lt JAR of Sangría@6.5@0
+BE004@Drink@Wiskey@Irish Wiskey@9@0
+CO001@Food@Prawn kebab@Prawns, tomato and pinneapple@2@0
+CO002@Food@Canapés combination@Of Ham, tomato and omelette@2.5@0
+CO003@Food@Swrimps orly@Fried swripms with spicy sauce@3@0
+CO004@Food@Sandwiches@Several flavors and combinations@3@0
+CO005@Food@Snaks@Chips, olives and peanuts@1.5@0
+CO006@Food@Chocolate cacke@Three chocolates cake served in small glasses@2@0
+DE001@Decoration@Disco@70's style lights and disco ball@0@100
+DE002@Decoration@Haloween@Pumpkins and frighten decoration@0@80
+DE003@Decoration@Ballons@Losts of ballons of one or several colors. Indicate your preference in the booking@0@25
+DE004@Decoration@Colored garlands@Tons of colored garlands. If you need a specific color or a combination, indicate your preference in the booking@0@30
+LO001@Place@Bar@Perfect dancing place in the downtown@0@250
+LO002@Place@Irish Pub@Charming Irish style pub@0@400
+LO003@Place@Hotel Ballroom@For big parties, a lot of space@0@700
+OT001@Otros@Disc-jockey@Yo can specify the type of music you want in the booking@0@200
+OT002@Otros@Drinks illuminated fountain@It can be used with any kind of drink. The attendants can serve themselves from the fountain@0@60
