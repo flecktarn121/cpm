@@ -16,9 +16,13 @@ import bussiness.BusinessException;
 import bussiness.Login;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;;
+import java.awt.event.FocusEvent;
 
 public class LoginDialog extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5873790838679534268L;
 	private JPanel pnButtons;
 	private JButton btnCancel;
 	private JButton btnRegister;
@@ -31,31 +35,17 @@ public class LoginDialog extends JDialog {
 	private Login login;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginDialog dialog = new LoginDialog(new Login());
-					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the dialog.
 	 */
 	public LoginDialog(Login login) {
+		setModal(true);
+		setTitle("User manager");
 		this.login = login;
 		setResizable(false);
 		setBounds(100, 100, 451, 120);
 		getContentPane().add(getPnButtons(), BorderLayout.SOUTH);
 		getContentPane().add(getPnCenter(), BorderLayout.CENTER);
+		this.setVisible(true);
 
 	}
 
@@ -156,7 +146,7 @@ public class LoginDialog extends JDialog {
 					if (pfUserPassword.getPassword().length > 0) {
 						getBtnLogIn().setEnabled(true);
 						getBtnRegister().setEnabled(true);
-					} 
+					}
 				}
 			});
 		}

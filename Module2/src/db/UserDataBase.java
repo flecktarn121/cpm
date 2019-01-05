@@ -1,8 +1,10 @@
 package db;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +39,8 @@ public class UserDataBase {
 	 * @param username
 	 * @param password
 	 * @return whether the specified password is correct for the specified user
-	 * @throws UserNotFoundException if the user is not in the database
+	 * @throws UserNotFoundException
+	 *             if the user is not in the database
 	 */
 	public boolean logIn(String username, String password) throws UserNotFoundException {
 		if (!isRegistered(username)) {
@@ -51,13 +54,27 @@ public class UserDataBase {
 		if (isRegistered(username)) {
 			throw new UserAlreadyRegisteredException("The user is already registered");
 		}
-		this.users.put(username, String.valueOf(password.hashCode()));
+		this.users.put(username, password);
 	}
 
 	public void updatePassword(String username, String password) throws UserNotFoundException {
 		if (!isRegistered(username)) {
 			throw new UserNotFoundException("The user " + username + " does not exist.");
 		}
-		this.users.replace(username, String.valueOf(password.hashCode()));
+		this.users.replace(username, password);
+	}
+
+	public void save() {
+		try (FileWriter fw = new FileWriter(USERS_FILE); BufferedWriter bw = new BufferedWriter(fw)) {
+			for(String user: users.keySet()) {
+				bw.write(user);
+				bw.write("@");
+				bw.write(users.get(user));
+				bw.newLine();
+			}
+		} catch (IOException e) {
+			
+		}
+
 	}
 }
